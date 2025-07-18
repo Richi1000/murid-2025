@@ -13,9 +13,20 @@ class JamPelajaran extends Model
         'hari',
         'jam_mulai',
         'jam_selesai',
+        'mata_pelajaran_id',
+        'guru_id',
     ];
 
-    public function belajars()
+    public function guru() {
+        return $this->belongsTo(Guru::class);
+    }
+    
+    public function mataPelajaran()
+    {
+    return $this->belongsTo(MataPelajaran::class);
+    }
+
+    public function belajar()
     {
         return $this->hasMany(Belajar::class);
     }
